@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 async function carregarPiquetes(servidorDw3, alertBox) {
   try {
     if (!servidorDw3) {
-      throw new Error('Endereco do servidor backend nao configurado.');
+      throw new Error('Endereço do servidor backend não configurado.');
     }
 
     var response = await fetch(servidorDw3 + '/getAllPiquetes', {
@@ -24,7 +24,7 @@ async function carregarPiquetes(servidorDw3, alertBox) {
     });
 
     if (!response.ok) {
-      throw new Error('Nao foi possivel carregar a lista de piquetes.');
+      throw new Error('Não foi possível carregar a lista de piquetes.');
     }
 
     var data = await response.json();
@@ -34,7 +34,7 @@ async function carregarPiquetes(servidorDw3, alertBox) {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro)) {
-      throw new Error('Resposta invalida do servidor backend.');
+      throw new Error('Resposta inválida do servidor backend.');
     }
 
     var respostaPastos = await fetch(servidorDw3 + '/getAllPastos', { headers: dw3MontarHeadersAutenticacao() });
@@ -85,8 +85,8 @@ function inicializarTabelaPiquetes(piquetes) {
     ],
     language: {
       emptyTable: 'Nenhum piquete cadastrado.',
-      info: 'Mostrando _START_ ate _END_ de _TOTAL_ registros',
-      infoEmpty: 'Mostrando 0 ate 0 de 0 registros',
+      info: 'Mostrando _START_ até _END_ de _TOTAL_ registros',
+      infoEmpty: 'Mostrando 0 até 0 de 0 registros',
       infoFiltered: '(filtrado de _MAX_ registros no total)',
       lengthMenu: 'Mostrar _MENU_ registros',
       loadingRecords: 'Carregando...',
@@ -95,8 +95,8 @@ function inicializarTabelaPiquetes(piquetes) {
       zeroRecords: 'Nenhum registro encontrado',
       paginate: {
         first: 'Primeiro',
-        last: 'Ultimo',
-        next: 'Proximo',
+        last: 'Último',
+        next: 'Próximo',
         previous: 'Anterior'
       }
     }

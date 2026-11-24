@@ -87,7 +87,7 @@ async function carregarPiqueteByID(servidorDw3, piqueteId, oper) {
     });
 
     if (!response.ok) {
-      throw new Error('Nao foi possivel carregar o piquete.');
+      throw new Error('Não foi possível carregar o piquete.');
     }
 
     var data = await response.json();
@@ -97,7 +97,7 @@ async function carregarPiqueteByID(servidorDw3, piqueteId, oper) {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro) || data.registro.length === 0) {
-      throw new Error('Piquete nao encontrado.');
+      throw new Error('Piquete não encontrado.');
     }
 
     preencherFormularioPiquete(data.registro[0]);
@@ -139,7 +139,7 @@ async function vwInsertPiquete() {
       body: JSON.stringify(montarPiqueteDoFormulario())
     });
 
-    await tratarRespostaCrudPiquete(response, 'Nao foi possivel inserir o piquete.');
+    await tratarRespostaCrudPiquete(response, 'Não foi possível inserir o piquete.');
     window.location.href = '/piquetes';
   } catch (error) {
     alert(error.message || 'Erro ao inserir piquete.');
@@ -171,7 +171,7 @@ async function vwUpdatePiquete(piqueteId) {
       body: JSON.stringify(montarPiqueteDoFormulario())
     });
 
-    await tratarRespostaCrudPiquete(response, 'Nao foi possivel atualizar o piquete.');
+    await tratarRespostaCrudPiquete(response, 'Não foi possível atualizar o piquete.');
     window.location.href = '/piquetes';
   } catch (error) {
     alert(error.message || 'Erro ao atualizar piquete.');
@@ -187,7 +187,7 @@ async function vwDeletePiquete(piqueteId) {
   var btnRemover = document.getElementById('btnRemoverPiquete');
 
   try {
-    if (!confirm('Confirma a remocao deste piquete?')) {
+    if (!confirm('Confirma a remoção deste piquete?')) {
       return;
     }
 
@@ -205,7 +205,7 @@ async function vwDeletePiquete(piqueteId) {
       throw new Error(data.message);
     }
 
-    await tratarRespostaCrudPiquete(response, 'Nao foi possivel remover o piquete.');
+    await tratarRespostaCrudPiquete(response, 'Não foi possível remover o piquete.');
     window.location.href = '/piquetes';
   } catch (error) {
     alert(error.message || 'Erro ao remover piquete.');
@@ -224,7 +224,7 @@ async function tratarRespostaCrudPiquete(response, mensagemErro) {
   var data = await response.json();
 
   if (!dw3TratarRespostaAutenticacao(data)) {
-    throw new Error('Sessao expirada.');
+    throw new Error('Sessão expirada.');
   }
 
   if (data.status !== 'ok') {

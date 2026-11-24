@@ -73,7 +73,7 @@ async function carregarAnimalByID(servidorDw3, animalId, oper) {
     });
 
     if (!response.ok) {
-      throw new Error('Nao foi possivel carregar o animal.');
+      throw new Error('Não foi possível carregar o animal.');
     }
 
     var data = await response.json();
@@ -83,7 +83,7 @@ async function carregarAnimalByID(servidorDw3, animalId, oper) {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro) || data.registro.length === 0) {
-      throw new Error('Animal nao encontrado.');
+      throw new Error('Animal não encontrado.');
     }
 
     preencherFormularioAnimal(data.registro[0]);
@@ -123,7 +123,7 @@ async function vwInsertAnimal() {
       body: JSON.stringify(montarAnimalDoFormulario())
     });
 
-    await tratarRespostaCrudAnimal(response, 'Nao foi possivel inserir o animal.');
+    await tratarRespostaCrudAnimal(response, 'Não foi possível inserir o animal.');
     window.location.href = '/animais';
   } catch (error) {
     alert(error.message || 'Erro ao inserir animal.');
@@ -155,7 +155,7 @@ async function vwUpdateAnimal(animalId) {
       body: JSON.stringify(montarAnimalDoFormulario())
     });
 
-    await tratarRespostaCrudAnimal(response, 'Nao foi possivel atualizar o animal.');
+    await tratarRespostaCrudAnimal(response, 'Não foi possível atualizar o animal.');
     window.location.href = '/animais';
   } catch (error) {
     alert(error.message || 'Erro ao atualizar animal.');
@@ -171,7 +171,7 @@ async function vwDeleteAnimal(animalId) {
   var btnRemover = document.getElementById('btnRemoverAnimal');
 
   try {
-    if (!confirm('Confirma a remocao deste animal?')) {
+    if (!confirm('Confirma a remoção deste animal?')) {
       return;
     }
 
@@ -189,7 +189,7 @@ async function vwDeleteAnimal(animalId) {
       throw new Error(data.message);
     }
 
-    await tratarRespostaCrudAnimal(response, 'Nao foi possivel remover o animal.');
+    await tratarRespostaCrudAnimal(response, 'Não foi possível remover o animal.');
     window.location.href = '/animais';
   } catch (error) {
     alert(error.message || 'Erro ao remover animal.');
@@ -208,7 +208,7 @@ async function tratarRespostaCrudAnimal(response, mensagemErro) {
   var data = await response.json();
 
   if (!dw3TratarRespostaAutenticacao(data)) {
-    throw new Error('Sessao expirada.');
+    throw new Error('Sessão expirada.');
   }
 
   if (data.status !== 'ok') {

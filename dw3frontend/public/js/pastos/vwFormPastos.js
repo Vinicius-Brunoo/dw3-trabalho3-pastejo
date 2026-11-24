@@ -73,7 +73,7 @@ async function carregarPastoByID(servidorDw3, pastoId, oper) {
     });
 
     if (!response.ok) {
-      throw new Error('Nao foi possivel carregar o pasto.');
+      throw new Error('Não foi possível carregar o pasto.');
     }
 
     var data = await response.json();
@@ -83,7 +83,7 @@ async function carregarPastoByID(servidorDw3, pastoId, oper) {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro) || data.registro.length === 0) {
-      throw new Error('Pasto nao encontrado.');
+      throw new Error('Pasto não encontrado.');
     }
 
     preencherFormularioPasto(data.registro[0]);
@@ -123,7 +123,7 @@ async function vwInsertPasto() {
       body: JSON.stringify(montarPastoDoFormulario())
     });
 
-    await tratarRespostaCrudPasto(response, 'Nao foi possivel inserir o pasto.');
+    await tratarRespostaCrudPasto(response, 'Não foi possível inserir o pasto.');
     window.location.href = '/pastos';
   } catch (error) {
     alert(error.message || 'Erro ao inserir pasto.');
@@ -155,7 +155,7 @@ async function vwUpdatePasto(pastoId) {
       body: JSON.stringify(montarPastoDoFormulario())
     });
 
-    await tratarRespostaCrudPasto(response, 'Nao foi possivel atualizar o pasto.');
+    await tratarRespostaCrudPasto(response, 'Não foi possível atualizar o pasto.');
     window.location.href = '/pastos';
   } catch (error) {
     alert(error.message || 'Erro ao atualizar pasto.');
@@ -171,7 +171,7 @@ async function vwDeletePasto(pastoId) {
   var btnRemover = document.getElementById('btnRemoverPasto');
 
   try {
-    if (!confirm('Confirma a remocao deste pasto?')) {
+    if (!confirm('Confirma a remoção deste pasto?')) {
       return;
     }
 
@@ -189,7 +189,7 @@ async function vwDeletePasto(pastoId) {
       throw new Error(data.message);
     }
 
-    await tratarRespostaCrudPasto(response, 'Nao foi possivel remover o pasto.');
+    await tratarRespostaCrudPasto(response, 'Não foi possível remover o pasto.');
     window.location.href = '/pastos';
   } catch (error) {
     alert(error.message || 'Erro ao remover pasto.');
@@ -208,7 +208,7 @@ async function tratarRespostaCrudPasto(response, mensagemErro) {
   var data = await response.json();
 
   if (!dw3TratarRespostaAutenticacao(data)) {
-    throw new Error('Sessao expirada.');
+    throw new Error('Sessão expirada.');
   }
 
   if (data.status !== 'ok') {
