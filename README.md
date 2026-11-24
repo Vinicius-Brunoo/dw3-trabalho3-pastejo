@@ -34,9 +34,9 @@ Na primeira execução, copie `.env.example` para `.env` e configure a senha do 
 docker compose up --build -d
 ```
 
-Abra http://localhost:40103. API: http://localhost:40003. O banco é inicializado automaticamente em um volume novo. O login de desenvolvimento herdado do exemplo é `admin` / `admin`; altere-o antes de disponibilizar o sistema.
+Abra http://localhost:40103. API: http://localhost:40003. O banco é inicializado automaticamente em um volume novo. Para o trabalho acadêmico, o login é `admin` / `admin`.
 
-Cadastre primeiro pastos e animais, depois piquetes e, por último, alocações. A data final pode ficar vazia para uma alocação em andamento. Quando preenchida, deve ser igual ou posterior à data inicial. Não há bloqueio de sobreposição de alocações, pois o enunciado não define essa regra.
+Cadastre primeiro pastos e animais, depois piquetes e, por último, alocações. A data final pode ficar vazia para uma alocação em andamento.
 
 Para encerrar sem apagar os dados:
 

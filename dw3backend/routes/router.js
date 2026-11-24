@@ -3,17 +3,12 @@ const routerApp = express.Router();
 
 const appLogin = require("../apps/login/controller/ctlLogin");
 
-routerApp.use((req, res, next) => {
-    next();
-});
-
 routerApp.get("/", (req, res) => {
     res.send("Olá mundo!");
 });
 
 routerApp.post("/Login", appLogin.Login);
 routerApp.post("/Logout", appLogin.Logout);
-
 
 const appPastos = require("../apps/pastos/controller/ctlPastos");
 routerApp.get("/getAllPastos", appLogin.AutenticaJWT, appPastos.GetAllPastos);
