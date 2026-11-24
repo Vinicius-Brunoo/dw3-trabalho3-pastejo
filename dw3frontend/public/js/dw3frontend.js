@@ -52,7 +52,7 @@ function dw3TratarRespostaAutenticacao(data) {
   if (data.auth === false) {
     localStorage.removeItem('token');
     dw3ClearIsLoggedCookie();
-    alert(data.message || 'Sessao expirada. Faca login novamente.');
+    alert(data.message || 'Sessão expirada. Faça login novamente.');
     window.location.href = '/login';
     return false;
   }

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     try {
       if (!servidorDw3) {
-        throw new Error('Endereco do servidor backend nao configurado.');
+        throw new Error('Endereço do servidor backend não configurado.');
       }
 
       var response = await fetch(servidorDw3 + '/Login', {
@@ -44,14 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       if (!response.ok) {
-        throw new Error('Usuario ou senha invalidos.');
+        throw new Error('Usuário ou senha inválidos.');
       }
 
       var data = await response.json();
       var token = data.token || data.Token || data.accessToken || data.AccessToken;
 
       if (!token) {
-        throw new Error(data.message || 'Erro no login. Token nao retornado pelo servidor.');
+        throw new Error(data.message || 'Erro no login. Token não retornado pelo servidor.');
       }
 
       localStorage.setItem('token', token);
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
       window.location.href = '/home';
     } catch (error) {
       if (errorBox) {
-        errorBox.textContent = error.message || 'Nao foi possivel realizar o login.';
+        errorBox.textContent = error.message || 'Não foi possível realizar o login.';
         errorBox.classList.remove('d-none');
       }
     } finally {

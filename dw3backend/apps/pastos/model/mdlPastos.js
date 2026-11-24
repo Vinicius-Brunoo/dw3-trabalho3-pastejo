@@ -33,7 +33,9 @@ async function UpdatePasto(id, registro) {
 
 async function DeletePasto(id) {
     const result = await db.query(
-        "UPDATE pasto SET removido = true WHERE pastoid = $1 AND removido = false",
+        `UPDATE pasto SET removido = true
+         WHERE pastoid = $1 AND removido = false
+         AND NOT EXISTS (SELECT 1 FROM piquete WHERE pastoidfk = $1 AND removido = false)`,
         [id]
     );
     return { linhasAfetadas: result.rowCount };

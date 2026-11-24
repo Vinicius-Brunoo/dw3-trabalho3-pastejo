@@ -33,7 +33,9 @@ async function UpdateAnimal(id, registro) {
 
 async function DeleteAnimal(id) {
     const result = await db.query(
-        "UPDATE animal SET removido = true WHERE animalid = $1 AND removido = false",
+        `UPDATE animal SET removido = true
+         WHERE animalid = $1 AND removido = false
+         AND NOT EXISTS (SELECT 1 FROM alocado WHERE animalidifk = $1 AND removido = false)`,
         [id]
     );
     return { linhasAfetadas: result.rowCount };

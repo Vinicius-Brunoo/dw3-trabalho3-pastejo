@@ -27,6 +27,13 @@ async function UpdatePasto(req, res) {
 async function DeletePasto(req, res) {
     const id = parseInt(req.params.pastoid);
     const result = await mdlPastos.DeletePasto(id);
+    if (result.linhasAfetadas === 0) {
+        const registro = await mdlPastos.GetPastoByID(id);
+        if (registro.length === 0) {
+            return res.status(404).json({ message: "Registro não encontrado." });
+        }
+        return res.status(409).json({ message: "O pasto não foi removido porque tem piquetes vinculados." });
+    }
     res.json({ status: "ok", ...result });
 }
 

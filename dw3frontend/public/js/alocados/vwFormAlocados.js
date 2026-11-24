@@ -94,7 +94,7 @@ async function carregarAlocadoByID(servidorDw3, alocadoId, oper) {
     });
 
     if (!response.ok) {
-      throw new Error('Nao foi possivel carregar o alocado.');
+      throw new Error('Não foi possível carregar o alocado.');
     }
 
     var data = await response.json();
@@ -104,7 +104,7 @@ async function carregarAlocadoByID(servidorDw3, alocadoId, oper) {
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro) || data.registro.length === 0) {
-      throw new Error('Alocado nao encontrado.');
+      throw new Error('Alocado não encontrado.');
     }
 
     preencherFormularioAlocado(data.registro[0]);
@@ -146,7 +146,7 @@ async function vwInsertAlocado() {
       body: JSON.stringify(montarAlocadoDoFormulario())
     });
 
-    await tratarRespostaCrudAlocado(response, 'Nao foi possivel inserir o alocado.');
+    await tratarRespostaCrudAlocado(response, 'Não foi possível inserir o alocado.');
     window.location.href = '/alocados';
   } catch (error) {
     alert(error.message || 'Erro ao inserir alocado.');
@@ -178,7 +178,7 @@ async function vwUpdateAlocado(alocadoId) {
       body: JSON.stringify(montarAlocadoDoFormulario())
     });
 
-    await tratarRespostaCrudAlocado(response, 'Nao foi possivel atualizar o alocado.');
+    await tratarRespostaCrudAlocado(response, 'Não foi possível atualizar o alocado.');
     window.location.href = '/alocados';
   } catch (error) {
     alert(error.message || 'Erro ao atualizar alocado.');
@@ -194,7 +194,7 @@ async function vwDeleteAlocado(alocadoId) {
   var btnRemover = document.getElementById('btnRemoverAlocado');
 
   try {
-    if (!confirm('Confirma a remocao deste alocado?')) {
+    if (!confirm('Confirma a remoção deste alocado?')) {
       return;
     }
 
@@ -207,7 +207,7 @@ async function vwDeleteAlocado(alocadoId) {
       headers: dw3MontarHeadersAutenticacao()
     });
 
-    await tratarRespostaCrudAlocado(response, 'Nao foi possivel remover o alocado.');
+    await tratarRespostaCrudAlocado(response, 'Não foi possível remover o alocado.');
     window.location.href = '/alocados';
   } catch (error) {
     alert(error.message || 'Erro ao remover alocado.');
@@ -226,7 +226,7 @@ async function tratarRespostaCrudAlocado(response, mensagemErro) {
   var data = await response.json();
 
   if (!dw3TratarRespostaAutenticacao(data)) {
-    throw new Error('Sessao expirada.');
+    throw new Error('Sessão expirada.');
   }
 
   if (data.status !== 'ok') {

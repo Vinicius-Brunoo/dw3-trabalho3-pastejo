@@ -33,7 +33,9 @@ async function UpdatePiquete(id, registro) {
 
 async function DeletePiquete(id) {
     const result = await db.query(
-        "UPDATE piquete SET removido = true WHERE piqueteid = $1 AND removido = false",
+        `UPDATE piquete SET removido = true
+         WHERE piqueteid = $1 AND removido = false
+         AND NOT EXISTS (SELECT 1 FROM alocado WHERE piqueteidfk = $1 AND removido = false)`,
         [id]
     );
     return { linhasAfetadas: result.rowCount };
