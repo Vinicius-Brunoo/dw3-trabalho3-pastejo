@@ -64,9 +64,9 @@ function inicializarTabelaAnimais(animais) {
 
           return [
             '<div class="btn-group btn-group-sm" role="group" aria-label="Operacoes do animal">',
-            '<a class="btn btn-outline-primary" href="/animais/form?oper=Re&animalid=' + animalId + '" title="Visualizar" aria-label="Visualizar"><i class="bi bi-eye"></i></a>',
-            '<a class="btn btn-outline-secondary" href="/animais/form?oper=Up&animalid=' + animalId + '" title="Atualizar" aria-label="Atualizar"><i class="bi bi-pencil-square"></i></a>',
-            '<a class="btn btn-outline-danger" href="/animais/form?oper=De&animalid=' + animalId + '" title="Remover" aria-label="Remover"><i class="bi bi-trash"></i></a>',
+            '<a class="btn btn-outline-primary" href="/animais/form?oper=Read&animalid=' + animalId + '" title="Visualizar" aria-label="Visualizar"><i class="bi bi-eye"></i></a>',
+            '<a class="btn btn-outline-secondary" href="/animais/form?oper=Update&animalid=' + animalId + '" title="Atualizar" aria-label="Atualizar"><i class="bi bi-pencil-square"></i></a>',
+            '<a class="btn btn-outline-danger" href="/animais/form?oper=Delete&animalid=' + animalId + '" title="Remover" aria-label="Remover"><i class="bi bi-trash"></i></a>',
             '</div>'
           ].join('');
         }

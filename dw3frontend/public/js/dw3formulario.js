@@ -9,7 +9,7 @@ function dw3IniciarFormulario(config) {
     const botao = form.querySelector('button');
     const campo = (nome) => form.querySelector('#' + nome);
     if (botao) botao.disabled = true;
-    if (oper === 'Re' || oper === 'De') dw3DesabilitarCampos(form);
+    if (oper === 'Read' || oper === 'Delete') dw3DesabilitarCampos(form);
 
     // Carrega as opções antes de selecionar os vínculos do registro.
     try {
@@ -21,7 +21,7 @@ function dw3IniciarFormulario(config) {
         }
       }
 
-      if (oper !== 'Cr') {
+      if (oper !== 'Create') {
         const dados = await dw3RequisicaoFormulario(servidorDw3 + config.consultar + id);
         if (!dados) return;
         const registro = dados.registro[0];
@@ -39,14 +39,14 @@ function dw3IniciarFormulario(config) {
 
     async function salvar() {
       let metodo, rota, corpo;
-      if (oper === 'De') {
+      if (oper === 'Delete') {
         if (!confirm('Confirma a remoção deste registro?')) return;
         metodo = 'DELETE';
         rota = config.remover + id;
       } else {
         if (!form.reportValidity()) return;
-        metodo = oper === 'Cr' ? 'POST' : 'PUT';
-        rota = oper === 'Cr' ? config.inserir : config.atualizar + id;
+        metodo = oper === 'Create' ? 'POST' : 'PUT';
+        rota = oper === 'Create' ? config.inserir : config.atualizar + id;
         corpo = {};
         // O primeiro campo é o ID; ele vai na URL, não no corpo.
         for (const nome of config.campos.slice(1)) corpo[nome] = campo(nome).value;

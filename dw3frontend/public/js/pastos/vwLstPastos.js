@@ -64,9 +64,9 @@ function inicializarTabelaPastos(pastos) {
 
           return [
             '<div class="btn-group btn-group-sm" role="group" aria-label="Operacoes do pasto">',
-            '<a class="btn btn-outline-primary" href="/pastos/form?oper=Re&pastoid=' + pastoId + '" title="Visualizar" aria-label="Visualizar"><i class="bi bi-eye"></i></a>',
-            '<a class="btn btn-outline-secondary" href="/pastos/form?oper=Up&pastoid=' + pastoId + '" title="Atualizar" aria-label="Atualizar"><i class="bi bi-pencil-square"></i></a>',
-            '<a class="btn btn-outline-danger" href="/pastos/form?oper=De&pastoid=' + pastoId + '" title="Remover" aria-label="Remover"><i class="bi bi-trash"></i></a>',
+            '<a class="btn btn-outline-primary" href="/pastos/form?oper=Read&pastoid=' + pastoId + '" title="Visualizar" aria-label="Visualizar"><i class="bi bi-eye"></i></a>',
+            '<a class="btn btn-outline-secondary" href="/pastos/form?oper=Update&pastoid=' + pastoId + '" title="Atualizar" aria-label="Atualizar"><i class="bi bi-pencil-square"></i></a>',
+            '<a class="btn btn-outline-danger" href="/pastos/form?oper=Delete&pastoid=' + pastoId + '" title="Remover" aria-label="Remover"><i class="bi bi-trash"></i></a>',
             '</div>'
           ].join('');
         }

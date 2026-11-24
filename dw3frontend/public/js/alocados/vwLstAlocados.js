@@ -84,9 +84,9 @@ function inicializarTabelaAlocados(alocados) {
 
           return [
             '<div class="btn-group btn-group-sm" role="group" aria-label="Operacoes do alocado">',
-            '<a class="btn btn-outline-primary" href="/alocados/form?oper=Re&alocadoid=' + alocadoId + '" title="Visualizar" aria-label="Visualizar"><i class="bi bi-eye"></i></a>',
-            '<a class="btn btn-outline-secondary" href="/alocados/form?oper=Up&alocadoid=' + alocadoId + '" title="Atualizar" aria-label="Atualizar"><i class="bi bi-pencil-square"></i></a>',
-            '<a class="btn btn-outline-danger" href="/alocados/form?oper=De&alocadoid=' + alocadoId + '" title="Remover" aria-label="Remover"><i class="bi bi-trash"></i></a>',
+            '<a class="btn btn-outline-primary" href="/alocados/form?oper=Read&alocadoid=' + alocadoId + '" title="Visualizar" aria-label="Visualizar"><i class="bi bi-eye"></i></a>',
+            '<a class="btn btn-outline-secondary" href="/alocados/form?oper=Update&alocadoid=' + alocadoId + '" title="Atualizar" aria-label="Atualizar"><i class="bi bi-pencil-square"></i></a>',
+            '<a class="btn btn-outline-danger" href="/alocados/form?oper=Delete&alocadoid=' + alocadoId + '" title="Remover" aria-label="Remover"><i class="bi bi-trash"></i></a>',
             '</div>'
           ].join('');
         }

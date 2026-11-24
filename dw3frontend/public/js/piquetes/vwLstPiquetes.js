@@ -75,9 +75,9 @@ function inicializarTabelaPiquetes(piquetes) {
 
           return [
             '<div class="btn-group btn-group-sm" role="group" aria-label="Operacoes do piquete">',
-            '<a class="btn btn-outline-primary" href="/piquetes/form?oper=Re&piqueteid=' + piqueteId + '" title="Visualizar" aria-label="Visualizar"><i class="bi bi-eye"></i></a>',
-            '<a class="btn btn-outline-secondary" href="/piquetes/form?oper=Up&piqueteid=' + piqueteId + '" title="Atualizar" aria-label="Atualizar"><i class="bi bi-pencil-square"></i></a>',
-            '<a class="btn btn-outline-danger" href="/piquetes/form?oper=De&piqueteid=' + piqueteId + '" title="Remover" aria-label="Remover"><i class="bi bi-trash"></i></a>',
+            '<a class="btn btn-outline-primary" href="/piquetes/form?oper=Read&piqueteid=' + piqueteId + '" title="Visualizar" aria-label="Visualizar"><i class="bi bi-eye"></i></a>',
+            '<a class="btn btn-outline-secondary" href="/piquetes/form?oper=Update&piqueteid=' + piqueteId + '" title="Atualizar" aria-label="Atualizar"><i class="bi bi-pencil-square"></i></a>',
+            '<a class="btn btn-outline-danger" href="/piquetes/form?oper=Delete&piqueteid=' + piqueteId + '" title="Remover" aria-label="Remover"><i class="bi bi-trash"></i></a>',
             '</div>'
           ].join('');
         }

@@ -1,7 +1,7 @@
 {% extends "layout.njk" %}
 {% block styles %}<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">{% endblock %}
 {% block content %}
-  <header class="page-heading"><div><p class="eyebrow">CADASTROS DA PROPRIEDADE</p><h1>Alocações</h1><p class="page-description">Acompanhe os animais em cada piquete e seus períodos de ocupação.</p></div><a class="btn btn-primary" href="/alocados/form?oper=Cr" id="btnNovoAlocado"><i class="bi bi-plus-lg" aria-hidden="true"></i> Nova alocação</a></header>
+  <header class="page-heading"><div><p class="eyebrow">CADASTROS DA PROPRIEDADE</p><h1>Alocações</h1><p class="page-description">Acompanhe os animais em cada piquete e seus períodos de ocupação.</p></div><a class="btn btn-primary" href="/alocados/form?oper=Create" id="btnNovoAlocado"><i class="bi bi-plus-lg" aria-hidden="true"></i> Nova alocação</a></header>
   <div id="alocadosAlert" class="alert alert-danger d-none" role="alert"></div>
   <section class="panel table-panel"><div class="panel-heading"><div><h2>Alocações cadastradas</h2><p>Consulte, edite ou organize seus registros.</p></div><span class="section-icon"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span></div>
     <div id="alocadosListagem" data-servidor-dw3="{{ servidorDw3 }}" class="table-content"><div class="table-responsive"><table id="tblAlocados" class="table table-hover align-middle w-100"><thead>

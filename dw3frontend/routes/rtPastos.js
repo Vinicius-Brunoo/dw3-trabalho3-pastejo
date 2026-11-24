@@ -16,7 +16,7 @@ router.get('/form', function(req, res) {
     showNavbar: true,
     activeMenu: 'pastos',
     servidorDw3: process.env.SERVIDOR_DW3,
-    oper: req.query.oper || 'Cr',
+    oper: req.query.oper || 'Create',
     pastoid: req.query.pastoid || '0'
   });
 });

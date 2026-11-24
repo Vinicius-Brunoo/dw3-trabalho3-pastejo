@@ -33,7 +33,7 @@ function mostrarUltimasAlocacoes(registros) {
   lista.replaceChildren();
 
   if (registros.Alocados.length === 0) {
-    lista.innerHTML = '<div class="empty-state"><i class="bi bi-arrow-left-right" aria-hidden="true"></i><h3>O próximo manejo começa aqui</h3><p>Depois de cadastrar seus pastos, piquetes e animais, registre a primeira alocação.</p><a class="text-link" href="/alocados/form?oper=Cr">Criar uma alocação <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>';
+    lista.innerHTML = '<div class="empty-state"><i class="bi bi-arrow-left-right" aria-hidden="true"></i><h3>O próximo manejo começa aqui</h3><p>Depois de cadastrar seus pastos, piquetes e animais, registre a primeira alocação.</p><a class="text-link" href="/alocados/form?oper=Create">Criar uma alocação <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>';
     return;
   }
 
@@ -43,7 +43,7 @@ function mostrarUltimasAlocacoes(registros) {
     var piquete = registros.Piquetes.find(function(item) { return item.piqueteid === alocado.piqueteidfk; });
     var link = document.createElement('a');
     link.className = 'allocation-item';
-    link.href = '/alocados/form?oper=Re&alocadoid=' + encodeURIComponent(alocado.alocadoid);
+    link.href = '/alocados/form?oper=Read&alocadoid=' + encodeURIComponent(alocado.alocadoid);
     link.innerHTML = '<span class="allocation-icon"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span><div><strong></strong><small></small></div><span class="allocation-period"></span>';
     link.querySelector('strong').textContent = animal ? animal.nome : 'Animal #' + alocado.animalidifk;
     link.querySelector('small').textContent = piquete ? piquete.descricao : 'Piquete #' + alocado.piqueteidfk;
