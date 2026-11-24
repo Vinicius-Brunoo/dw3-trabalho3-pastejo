@@ -184,6 +184,11 @@ async function vwDeletePasto(pastoId) {
       headers: dw3MontarHeadersAutenticacao()
     });
 
+    if (response.status === 409) {
+      var data = await response.json();
+      throw new Error(data.message);
+    }
+
     await tratarRespostaCrudPasto(response, 'Nao foi possivel remover o pasto.');
     window.location.href = '/pastos';
   } catch (error) {

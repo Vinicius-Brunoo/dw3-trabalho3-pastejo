@@ -184,6 +184,11 @@ async function vwDeleteAnimal(animalId) {
       headers: dw3MontarHeadersAutenticacao()
     });
 
+    if (response.status === 409) {
+      var data = await response.json();
+      throw new Error(data.message);
+    }
+
     await tratarRespostaCrudAnimal(response, 'Nao foi possivel remover o animal.');
     window.location.href = '/animais';
   } catch (error) {

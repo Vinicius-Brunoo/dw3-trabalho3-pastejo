@@ -200,6 +200,11 @@ async function vwDeletePiquete(piqueteId) {
       headers: dw3MontarHeadersAutenticacao()
     });
 
+    if (response.status === 409) {
+      var data = await response.json();
+      throw new Error(data.message);
+    }
+
     await tratarRespostaCrudPiquete(response, 'Nao foi possivel remover o piquete.');
     window.location.href = '/piquetes';
   } catch (error) {

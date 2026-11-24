@@ -27,6 +27,13 @@ async function UpdatePiquete(req, res) {
 async function DeletePiquete(req, res) {
     const id = parseInt(req.params.piqueteid);
     const result = await mdlPiquetes.DeletePiquete(id);
+    if (result.linhasAfetadas === 0) {
+        const registro = await mdlPiquetes.GetPiqueteByID(id);
+        if (registro.length === 0) {
+            return res.status(404).json({ message: "Registro não encontrado." });
+        }
+        return res.status(409).json({ message: "O piquete não foi removido porque tem uma alocação vinculada." });
+    }
     res.json({ status: "ok", ...result });
 }
 
