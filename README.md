@@ -69,4 +69,4 @@ A remoção altera apenas `removido` para `true`. O histórico e as chaves estra
 
 ## Verificar as APIs
 
-O arquivo `dw3backend/tests/testPastejo.rest` contém o login e as 20 operações de CRUD para executar com a extensão REST Client, como nos exemplos das aulas.
+O arquivo `dw3backend/tests/testPastejo.rest` contém o login e as 20 operações de CRUD para executar com a extensão REST Client, como nos exemplos das aulas...
