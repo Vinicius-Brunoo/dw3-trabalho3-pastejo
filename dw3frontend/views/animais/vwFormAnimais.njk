@@ -3,7 +3,7 @@
   <a class="back-link" href="/animais"><i class="bi bi-arrow-left" aria-hidden="true"></i> Voltar para animais</a>
   <header class="page-heading form-heading"><div><p class="eyebrow">ANIMAIS</p><h1>{% if oper == 'Up' %}Editar animal{% elif oper == 'De' %}Remover animal{% elif oper == 'Re' %}Detalhes do animal{% else %}Novo animal{% endif %}</h1><p class="page-description">Informe o nome e a data de nascimento do animal.</p></div></header>
   <section class="panel form-panel"><div class="panel-heading"><div><h2>Dados do animal</h2><p>Preencha os campos abaixo para continuar.</p></div><span class="section-icon"><i class="bi bi-tags" aria-hidden="true"></i></span></div>
-    <form id="frmAnimais" class="record-form" data-servidor-dw3="{{ servidorDw3 }}" data-oper="{{ oper }}" data-animalid="{{ animalid }}">
+    <form id="frmAnimais" class="record-form" data-servidor-dw3="{{ servidorDw3 }}" data-oper="{{ oper }}" data-id="{{ animalid }}">
       <input type="hidden" id="animalid" name="animalid" value="{{ animalid }}">
       <input type="hidden" id="removido" name="removido" value="false">
       {% if oper == 'De' %}<div class="alert alert-warning" role="alert">Confira os dados antes de confirmar a remoção deste registro.</div>{% endif %}
@@ -25,5 +25,6 @@
     </form>
   </section>
   <script src="/js/dw3frontend.js"></script>
+  <script src="/js/dw3formulario.js"></script>
   <script src="/js/animais/vwFormAnimais.js"></script>
 {% endblock %}

@@ -3,7 +3,7 @@
   <a class="back-link" href="/alocados"><i class="bi bi-arrow-left" aria-hidden="true"></i> Voltar para alocações</a>
   <header class="page-heading form-heading"><div><p class="eyebrow">ALOCAÇÕES</p><h1>{% if oper == 'Up' %}Editar alocação{% elif oper == 'De' %}Remover alocação{% elif oper == 'Re' %}Detalhes da alocação{% else %}Nova alocação{% endif %}</h1><p class="page-description">Escolha o animal, o piquete e o período de permanência.</p></div></header>
   <section class="panel form-panel"><div class="panel-heading"><div><h2>Dados da alocação</h2><p>Preencha os campos abaixo para continuar.</p></div><span class="section-icon"><i class="bi bi-arrow-left-right" aria-hidden="true"></i></span></div>
-    <form id="frmAlocados" class="record-form" data-servidor-dw3="{{ servidorDw3 }}" data-oper="{{ oper }}" data-alocadoid="{{ alocadoid }}">
+    <form id="frmAlocados" class="record-form" data-servidor-dw3="{{ servidorDw3 }}" data-oper="{{ oper }}" data-id="{{ alocadoid }}">
       <input type="hidden" id="alocadoid" name="alocadoid" value="{{ alocadoid }}">
       <input type="hidden" id="removido" name="removido" value="false">
       {% if oper == 'De' %}<div class="alert alert-warning" role="alert">Confira os dados antes de confirmar a remoção deste registro.</div>{% endif %}
@@ -31,5 +31,6 @@
     </form>
   </section>
   <script src="/js/dw3frontend.js"></script>
+  <script src="/js/dw3formulario.js"></script>
   <script src="/js/alocados/vwFormAlocados.js"></script>
 {% endblock %}
