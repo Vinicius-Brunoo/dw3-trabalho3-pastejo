@@ -96,6 +96,7 @@ h2 { font-size: 17px; font-weight: 650; letter-spacing: -.3px; margin-bottom: 6p
 .table .btn-group > .btn { border-radius: 6px !important; margin-left: 0 !important; padding: 6px 8px; font-size: 13px; }
 .dt-container { font-size: 11px; }
 .dt-container label { color: var(--muted); }
+.dt-container .dt-length select { min-width: 64px; width: auto; padding: 6px 30px 6px 10px; background-position: right 9px center; }
 .dt-container .dt-info { color: var(--muted); padding-top: 5px; }
 .dt-container .page-link { font-size: 11px; color: var(--green); background: #fff; border-color: var(--line); padding: 7px 11px; }
 .dt-container .page-item.active .page-link { color: #fff; background: var(--green); border-color: var(--green); }

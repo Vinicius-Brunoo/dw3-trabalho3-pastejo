@@ -1,12 +1,14 @@
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
 CREATE TABLE IF NOT EXISTS usuarios (
     usuarioid BIGSERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(50) NOT NULL,
+    password TEXT NOT NULL,
     removido BOOLEAN NOT NULL DEFAULT false
 );
 
 INSERT INTO usuarios (username, password)
-VALUES ('admin', 'admin');
+VALUES ('admin', crypt('admin', gen_salt('bf')));
 
 CREATE TABLE IF NOT EXISTS pasto (
     pastoid BIGSERIAL PRIMARY KEY,
