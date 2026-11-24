@@ -110,6 +110,7 @@ h2 { font-size: 17px; font-weight: 650; letter-spacing: -.3px; margin-bottom: 6p
 .form-control:focus, .form-select:focus { border-color: #7ca46b; box-shadow: 0 0 0 3px #91b76d1c; }
 .form-control:disabled, .form-select:disabled { background: #f6f8f3; color: #667463; }
 .form-control-sm, .form-select-sm { min-height: 34px; padding: 6px 10px; font-size: 11px; }
+.form-select { padding-inline-end: 2.25rem; }
 .form-actions { display: flex; gap: 10px; border-top: 1px solid var(--line); padding-top: 24px; margin-top: 30px; }
 .field-help { color: var(--muted); font-size: 10px; line-height: 1.7; margin: 8px 0 0; }
 .field-help a { text-decoration: underline; text-underline-offset: 3px; }
